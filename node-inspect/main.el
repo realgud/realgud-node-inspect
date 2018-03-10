@@ -67,7 +67,7 @@ fringe and marginal icons.
 "
   (interactive)
   (let ((cmd-buf
-	 (realgud:run-debugger "node inspect"
+	 (realgud:run-debugger "node-inspect"
 			       'node-inspect-query-cmdline 'node-inspect-parse-cmd-args
 			       'realgud:node-inspect-minibuffer-history
 			       opt-cmd-line no-reset)))

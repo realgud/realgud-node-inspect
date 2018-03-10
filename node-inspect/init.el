@@ -13,9 +13,9 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-;;; node inspect debugger
+;;; "node inspect" debugger
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile (require 'cl-lib))   ;For setf.
 
 (require 'realgud)
 (require 'realgud-lang-js)
@@ -161,9 +161,6 @@ realgud-loc-pat struct")
 (setf (gethash "finish"     realgud:node-inspect-command-hash) "out")
 (setf (gethash "shell"      realgud:node-inspect-command-hash) "repl")
 (setf (gethash "eval"       realgud:node-inspect-command-hash) "exec('%s')")
-(setf (gethash "up"         realgud:node-inspect-command-hash) "*not-implemented*")
-(setf (gethash "down"       realgud:node-inspect-command-hash) "*not-implemented*")
-(setf (gethash "frame"      realgud:node-inspect-command-hash) "*not-implemented*")
 
 ;; We need aliases for step and next because the default would
 ;; do step 1 and node-inspect doesn't handle this. And if it did,
@@ -172,6 +169,9 @@ realgud-loc-pat struct")
 (setf (gethash "next"       realgud:node-inspect-command-hash) "next")
 
 ;; Unsupported features:
-(setf (gethash "jump"  realgud:node-inspect-command-hash) "*not-implemented*")
+(setf (gethash "jump"       realgud:node-inspect-command-hash) "*not-implemented*")
+(setf (gethash "up"         realgud:node-inspect-command-hash) "*not-implemented*")
+(setf (gethash "down"       realgud:node-inspect-command-hash) "*not-implemented*")
+(setf (gethash "frame"      realgud:node-inspect-command-hash) "*not-implemented*")
 
 (provide-me "realgud:node-inspect-")

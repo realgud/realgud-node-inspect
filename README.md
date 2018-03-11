@@ -3,4 +3,4 @@ debugger support to emacs
 [realgud](http://github.com/realgud/realgud).
 
 For node before version 6.3, an older protocol is used.  In realgud,
-that debugger for the older version is called nodejs.
+that debugger for the older version is called node-debug.

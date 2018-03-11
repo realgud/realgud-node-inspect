@@ -1,4 +1,4 @@
-Module to add [node inspect](https://nodejs.org/api/debugger.html)'s [V8-inspect-protocol](https://chromedevtools.github.io/devtools-protocol/v8/)
+Module to add [node inspect](https://nodejs.org/api/debugger.html)'s [V8-inspector-protocol](https://chromedevtools.github.io/devtools-protocol/v8/)
 debugger support to emacs
 [realgud](http://github.com/realgud/realgud).
 

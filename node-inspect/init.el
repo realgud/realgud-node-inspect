@@ -174,4 +174,7 @@ realgud-loc-pat struct")
 (setf (gethash "down"       realgud:node-inspect-command-hash) "*not-implemented*")
 (setf (gethash "frame"      realgud:node-inspect-command-hash) "*not-implemented*")
 
+(setf (gethash "node-inspect" realgud-command-hash) realgud:node-inspect-command-hash)
+(setf (gethash "node-inpsect" realgud-pat-hash) realgud:node-inspect-pat-hash)
+
 (provide-me "realgud:node-inspect-")

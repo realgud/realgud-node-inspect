@@ -52,16 +52,11 @@ the argument is positive, and disables it otherwise.
   :group 'realgud:node-inspect
   :keymap realgud:node-inspect-track-mode-map
 
-  (realgud:track-set-debugger "node-inspect")
-  (realgud:node-inspect-track-mode-internal)
-)
-
-(defun realgud:node-inspect-track-mode-internal (&optional arg)
-  (realgud:track-set-debugger "node-inspect")
   (if realgud:node-inspect-track-mode
       (progn
-        (realgud-track-mode-setup 't)
-        (realgud:node-inspect-track-mode-hook))
+	(realgud:track-set-debugger "node-inspect")
+        (realgud:node-inspect-track-mode-hook)
+        (realgud:track-mode-enable))
     (progn
       (setq realgud-track-mode nil)
       ))

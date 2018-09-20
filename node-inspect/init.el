@@ -49,12 +49,17 @@ realgud-loc-pat struct")
        :regexp (format "^\\(?:%s\\)*debug> " realgud:js-term-escape)
        ))
 
-;;  Regular expression that describes a "breakpoint set" line
-;;
+;; Need an improved setbreak for this.
+;; ;;  Regular expression that describes a "breakpoint set" line
+;; ;;   3 const armlet = require('armlet');
+;; ;; * 4 const client = new armlet.Client(
+;; ;; ^^^^
+;; ;;
 ;; (setf (gethash "brkpt-set" realgud:node-inspect-pat-hash)
 ;;       (make-realgud-loc-pat
-;;        :regexp "^[*] \\([0-9]+\\) "
-;;        :line-group 1))
+;;        :regexp "^\*[ ]*\\([0-9]+\\) \\(.+\\)"
+;;        :line-group 1
+;;        :text-group 2))
 
 ;; Regular expression that describes a V8 backtrace line.
 ;; For example:
@@ -175,6 +180,6 @@ realgud-loc-pat struct")
 (setf (gethash "frame"      realgud:node-inspect-command-hash) "*not-implemented*")
 
 (setf (gethash "node-inspect" realgud-command-hash) realgud:node-inspect-command-hash)
-(setf (gethash "node-inpsect" realgud-pat-hash) realgud:node-inspect-pat-hash)
+(setf (gethash "node-inspect" realgud-pat-hash) realgud:node-inspect-pat-hash)
 
 (provide-me "realgud:node-inspect-")

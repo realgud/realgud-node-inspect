@@ -2,7 +2,7 @@
 ;; (test-simple-run "emacs -batch -L %s -l %s" (file-name-directory (locate-library "test-simple.elc")) buffer-file-name)
 
 (require 'test-simple)
-(load-file "../node-inspect/main.el")
+(load-file "../realgud-node-inspect/main.el")
 
 (eval-when-compile (defvar test:run-process-save))
 
@@ -24,9 +24,9 @@
     (assert-equal  expanded-name script-filename "file name check")
     ))
 
-(note "nodejs-parse-cmd-args")
-(assert-equal (list '(("node") nil ("inspect" "foo"))
-	      (nodejs-parse-cmd-args '("node" "inspect" "foo")))
+(note "node-inspect-parse-cmd-args")
+(assert-equal '(("node") nil ("inspect" "foo"))
+	      (node-inspect-parse-cmd-args '("node" "inspect" "foo")))
 
 ;; FIXME: need to mock remove-ansi-schmutz in realgud:nodejs
 ;; (realgud:nodejs "node inspect ./gcd.js 3 5")

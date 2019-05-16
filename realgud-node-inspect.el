@@ -36,7 +36,6 @@
 ;; Press C-x C-e at the end of the next line configure the program in
 ;; for building via "make" to get set up.
 ;; (compile (format "EMACSLOADPATH=:%s:%s:%s:%s ./autogen.sh" (file-name-directory (locate-library "test-simple.elc")) (file-name-directory (locate-library "realgud.elc")) (file-name-directory (locate-library "load-relative.elc")) (file-name-directory (locate-library "loc-changes.elc"))))
-
 (require 'load-relative)
 
 (defgroup realgud-node-inspector  nil
@@ -44,8 +43,9 @@
   :group 'realgud
   :version "24.3")
 
-(require-relative-list '( "./node-inspect/main" ) "realgud-")
-(load-relative "./node-inspect/main.el")
+(require-relative-list '( "./realgud-node-inspect/main" ) "realgud-")
+(load-relative "./realgud-node-inspect/main.el")
+(load-relative "./realgud-node-inspect/track-mode.el")
 
 (provide-me)
 

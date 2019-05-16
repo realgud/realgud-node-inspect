@@ -2,7 +2,7 @@
 # These comments before the targets start with #:
 # remake --tasks to shows the targets and the comments
 
-SUBDIRS = node-inspect test
+SUBDIRS = realgud-node-inspect test
 
 GIT2CL ?= git2cl
 RUBY   ?= ruby

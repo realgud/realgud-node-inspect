@@ -6,7 +6,7 @@
 (require 'realgud)
 
 (load-file "./regexp-helper.el")
-(load-file "../node-inspect/init.el")
+(load-file "../realgud-node-inspect/init.el")
 
 (declare-function realgud-cmdbuf-info-loc-regexp 'realgud-buffer-command)
 (declare-function cmdbuf-loc-match               'realgud-regexp-helper)

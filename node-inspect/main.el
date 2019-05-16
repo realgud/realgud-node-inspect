@@ -1,4 +1,4 @@
-;; Copyright (C) 2016, 2018 Rocky Bernstein
+;; Copyright (C) 2016, 2018-2019 Rocky Bernstein
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -53,18 +53,17 @@ This should be an executable on your path, or an absolute file name."
 String OPT-CMD-LINE specifies how to run node-inspect.
 
 OPT-CMD-LINE is treated like a shell string; arguments are
-tokenized by `split-string-and-unquote'. The tokenized string is
+tokenized by `split-string-and-unquote'.  The tokenized string is
 parsed by `node-inspect-parse-cmd-args' and path elements found by that
 are expanded using `realgud:expand-file-name-if-exists'.
 
 Normally, command buffers are reused when the same debugger is
-reinvoked inside a command buffer with a similar command. If we
+reinvoked inside a command buffer with a similar command.  If we
 discover that the buffer has prior command-buffer information and
 NO-RESET is nil, then that information which may point into other
 buffers and source buffers which may contain marks and fringe or
-marginal icons is reset. See `loc-changes-clear-buffer' to clear
-fringe and marginal icons.
-"
+marginal icons is reset.  See `loc-changes-clear-buffer' to clear
+fringe and marginal icons."
   (interactive)
   (let ((cmd-buf
 	 (realgud:run-debugger "node-inspect"

@@ -1,4 +1,4 @@
-;; Copyright (C) 2015-2016, 2018 Rocky Bernstein <rocky@gnu.org>
+;; Copyright (C) 2015-2016, 2018-2019 Rocky Bernstein <rocky@gnu.org>
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -112,7 +112,7 @@ realgud-loc-pat struct")
        :line-group 3
        :char-offset-group 4))
 
-(defconst realgud:node-inspect-debugger-name "node-inspect" "Name of debugger")
+(defconst realgud:node-inspect-debugger-name "node-inspect" "Name of debugger.")
 
 ;; ;; Regular expression that for a termination message.
 ;; (setf (gethash "termination" realgud:node-inspect-pat-hash)
@@ -151,7 +151,7 @@ realgud-loc-pat struct")
 
 (defvar realgud:node-inspect-command-hash (make-hash-table :test 'equal)
   "Hash key is command name like 'finish' and the value is
-  the node-inspect command to use, like 'out'")
+the node-inspect command to use, like 'out'.")
 
 (setf (gethash realgud:node-inspect-debugger-name
 	       realgud-command-hash)

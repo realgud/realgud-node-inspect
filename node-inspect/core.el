@@ -1,4 +1,4 @@
-;;; Copyright (C) 2015-2018 Rocky Bernstein <rocky@gnu.org>
+;;; Copyright (C) 2015-2019 Rocky Bernstein <rocky@gnu.org>
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -31,7 +31,7 @@
 ;; FIXME: I think the following could be generalized and moved to
 ;; realgud-... probably via a macro.
 (defvar realgud:node-inspect-minibuffer-history nil
-  "minibuffer history list for the command `node-inspect'.")
+  "Minibuffer history list for the command `node-inspect'.")
 
 (easy-mmode-defmap realgud:node-inspect-minibuffer-local-map
   '(("\C-i" . comint-dynamic-complete-filename))
@@ -54,7 +54,8 @@
 ORIG-ARGS should contain a tokenized list of the command line to run.
 
 We return the a list containing
-* the name of the debugger given (e.g. node-inspect) and its arguments - a list of strings
+* the name of the debugger given (e.g. node-inspect) and its arguments ,
+  a list of strings
 * the script name and its arguments - list of strings
 
 For example for the following input:
@@ -62,10 +63,10 @@ For example for the following input:
    '(node --interactive --debugger-port 5858 /tmp node-inspect ./gcd.js a b))
 
 we might return:
-   ((\"node\" \"--interactive\" \"--debugger-port\" \"5858\") nil (\"/tmp/gcd.js\" \"a\" \"b\"))
+   ((\"node\" \"--interactive\" \"--debugger-port\" \"5858\") nil
+    (\"/tmp/gcd.js\" \"a\" \"b\"))
 
-Note that path elements have been expanded via `expand-file-name'.
-"
+Note that path elements have been expanded via `expand-file-name'."
 
   ;; Parse the following kind of pattern:
   ;;  node node-inspect-options script-name script-options
@@ -128,14 +129,14 @@ Note that path elements have been expanded via `expand-file-name'.
 (defvar realgud:node-inspect-command-name)
 
 (defun realgud:node-inspect-suggest-invocation (debugger-name)
-  "Suggest a node-inspect command invocation via `realgud-suggest-invocaton'"
+  "Suggest a node-inspect command invocation via `realgud-suggest-invocaton'."
   (realgud-suggest-invocation realgud:node-inspect-command-name
 			      realgud:node-inspect-minibuffer-history
 			      "js" "\\.js$"))
 
 (defun realgud:node-inspect-remove-ansi-shmutz()
   "Remove ASCII escape sequences that node.js 'decorates' in
-prompts and interactive output with"
+prompts and interactive output."
   (add-to-list
    'comint-preoutput-filter-functions
    (lambda (output)

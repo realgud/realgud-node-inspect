@@ -1,13 +1,13 @@
 ;;; realgud-node-inspect.el --- realgud front-end to newer "node inspect"
 
 ;; Author: Rocky Bernstein
-;; Version: 1.0
+;; Version: 1.0.0
 ;; Package-Type: multi
-;; Package-Requires: ((realgud "1.4.3") (cl-lib "0.5") (emacs "24"))
+;; Package-Requires: ((realgud "1.4.5") (load-relative "1.2") (cl-lib "0.5") (emacs "24"))
 ;; URL: http://github.com/realgud/realgud-node-inspect
 ;; Compatibility: GNU Emacs 24.x
 
-;; Copyright (C) 2015, 2016, 2018 Rocky Bernstein <rocky@gnu.org>
+;; Copyright (C) 2015, 2016, 2018-2019 Rocky Bernstein <rocky@gnu.org>
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,6 +26,10 @@
 
 ;; realgud support for the "node inspect" with V8 inspector support.
 ;; See https://nodejs.org/api/debugger.html
+;;
+;; Note: for node before version 6.3, an older protocol is used.  In
+;; realgud, that debugger for the older version is called
+;; `node-debug`.
 ;;
 ;;; Code:
 

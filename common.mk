@@ -1,5 +1,5 @@
 MOSTLYCLEANFILES = *.elc
-EMACSLOADPATH=:/home/rocky/.emacs.d/elpa/test-simple-20170527.832/:/home/rocky/.emacs.d/elpa/realgud-20180207.1330/
+EMACSLOADPATH=:/home/rocky/.emacs.d/elpa/test-simple-20170527.1532/:/home/rocky/.emacs.d/elpa/realgud-20190504.1238/:/home/rocky/.emacs.d/elpa/load-relative-20170526.1010/:/home/rocky/.emacs.d/elpa/loc-changes-20160801.1708/
 
 short:
 	$(MAKE) 2>&1 >/dev/null | ruby $(top_srcdir)/make-check-filter.rb

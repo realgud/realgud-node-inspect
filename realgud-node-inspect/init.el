@@ -35,7 +35,7 @@ realgud-loc-pat struct")
 (setf (gethash "loc" realgud:node-inspect-pat-hash)
       (make-realgud-loc-pat
        :regexp (format
-		"\\(?:%s\\)*\\(?:break\\|exception\\) in %s:%s"
+		"\\(?:%s\\)*\\(?:break\\|exception\\|Break on start\\) in \\(?:file://\\)?%s:%s"
 		realgud:js-term-escape "\\([^:]+\\)"
 		realgud:regexp-captured-num)
        :file-group 1
@@ -83,7 +83,7 @@ realgud-loc-pat struct")
 (defconst realgud:node-inspect-frame-start-regexp  "\\(?:^\\|\n\\)\\(?:#\\)")
 (defconst realgud:node-inspect-frame-num-regexp    realgud:regexp-captured-num)
 (defconst realgud:node-inspect-frame-module-regexp "[^ \t\n]+")
-(defconst realgud:node-inspect-frame-file-regexp   "[^ \t\n]+")
+(defconst realgud:node-inspect-frame-file-regexp   "\\(?:file://\)?[^ \t\n]+")
 
 ;; Regular expression that describes a node-inspect location generally shown
 ;; Regular expression that describes a debugger "backtrace" command line.
@@ -157,15 +157,18 @@ the node-inspect command to use, like 'out'.")
 	       realgud-command-hash)
       realgud:node-inspect-command-hash)
 
-(setf (gethash "backtrace"  realgud:node-inspect-command-hash) "backtrace")
-(setf (gethash "break"      realgud:node-inspect-command-hash)
+(setf (gethash "backtrace"        realgud:node-inspect-command-hash) "backtrace")
+(setf (gethash "break"            realgud:node-inspect-command-hash)
       "setBreakpoint('%X',%l)")
-(setf (gethash "continue"   realgud:node-inspect-command-hash) "cont")
-(setf (gethash "kill"       realgud:node-inspect-command-hash) "kill")
-(setf (gethash "quit"       realgud:node-inspect-command-hash) "")
-(setf (gethash "finish"     realgud:node-inspect-command-hash) "out")
-(setf (gethash "shell"      realgud:node-inspect-command-hash) "repl")
-(setf (gethash "eval"       realgud:node-inspect-command-hash) "exec('%s')")
+(setf (gethash "clear"            realgud:node-inspect-command-hash)
+      "clearBreakpoint('%X', %l)")
+(setf (gethash "continue"         realgud:node-inspect-command-hash) "cont")
+(setf (gethash "eval"             realgud:node-inspect-command-hash) "exec('%s')")
+(setf (gethash "finish"           realgud:node-inspect-command-hash) "out")
+(setf (gethash "info-breakpoints" realgud:node-inspect-command-hash) "breakpoints")
+(setf (gethash "kill"             realgud:node-inspect-command-hash) "kill")
+(setf (gethash "quit"             realgud:node-inspect-command-hash) ".exit")
+(setf (gethash "shell"            realgud:node-inspect-command-hash) "repl")
 
 ;; We need aliases for step and next because the default would
 ;; do step 1 and node-inspect doesn't handle this. And if it did,

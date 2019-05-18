@@ -83,28 +83,27 @@ realgud-loc-pat struct")
 (defconst realgud:node-inspect-frame-start-regexp  "\\(?:^\\|\n\\)\\(?:#\\)")
 (defconst realgud:node-inspect-frame-num-regexp    realgud:regexp-captured-num)
 (defconst realgud:node-inspect-frame-module-regexp "[^ \t\n]+")
-(defconst realgud:node-inspect-frame-file-regexp   "\\(?:file://\)?[^ \t\n]+")
+(defconst realgud:node-inspect-frame-file-regexp   "[^ \t\n]+")
 
-;; Regular expression that describes a node-inspect location generally shown
 ;; Regular expression that describes a debugger "backtrace" command line.
 ;; For example:
 ;; #0 module.js:380:17
 ;; #1 dbgtest.js:3:9
 ;; #2 Module._compile module.js:456:26
-;; #3 Module._extensions..js module.js:474:10
-;; #4 Module.load module.js:356:32
-;; #5 Module._load module.js:312:12
-;; #6 Module.runMain module.js:497:10
-; ;#7 timers.js:110:15
+;;
+;; and with a newer node inspect:
+;;
+;; #0 file:///tmp/module.js:380:17
+;; #1 file:///tmp/dbgtest.js:3:9
+;; #2 Module._compile file:///tmpmodule.js:456:26
 (setf (gethash "debugger-backtrace" realgud:node-inspect-pat-hash)
       (make-realgud-loc-pat
-       :regexp 	(concat realgud:node-inspect-frame-start-regexp
-			realgud:node-inspect-frame-num-regexp " "
-			"\\(?:" realgud:node-inspect-frame-module-regexp " \\)?"
-			"\\(" realgud:node-inspect-frame-file-regexp "\\)"
-			":"
+       :regexp 	(format "%s%s\\(?: %s\\)? \\(?:file://\\)?\\(%s\\):%s:%s"
+			realgud:node-inspect-frame-start-regexp
+			realgud:node-inspect-frame-num-regexp
+			realgud:node-inspect-frame-module-regexp
+			realgud:node-inspect-frame-file-regexp
 			realgud:regexp-captured-num
-			":"
 			realgud:regexp-captured-num
 			)
        :num 1

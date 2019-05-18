@@ -24,6 +24,8 @@
 
 (require-relative-list '("core" "init") "realgud:node-inspect-")
 
+(realgud-track-mode-vars "realgud:node-inspect")
+
 (defun realgud:node-inspect-track-mode-hook()
   (if realgud:node-inspect-track-mode
       (progn
@@ -36,6 +38,8 @@
 
 ;; FIXME: this shouldn't be needed
 (defvar realgud:node-inspect-track-mode-map (make-keymap))
+(define-key realgud:node-inspect-track-mode-map
+  (kbd "C-c !f") 'realgud:js-goto-file-line)
 
 (define-minor-mode realgud:node-inspect-track-mode
   "Minor mode for tracking node-inspect source locations inside a node-inspect shell via realgud.

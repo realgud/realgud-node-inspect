@@ -1,5 +1,6 @@
 ;;; track-mode.el ---
-;;; Copyright (C) 2016, 2018 Rocky Bernstein <rocky@gnu.org>
+;; Copyright (C) 2019 Free Software Foundation, Inc
+;; Author: Rocky Bernstein
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

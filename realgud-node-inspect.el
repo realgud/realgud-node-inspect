@@ -1,4 +1,4 @@
-;;; realgud-node-inspect.el --- Realgud front-end to newer "node inspect"
+;;; realgud-node-inspect.el --- Realgud front-end to newer "node inspect" -*- lexical-binding: t -*-
 
 ;; Author: Rocky Bernstein
 ;; Version: 1.0.0
@@ -7,7 +7,7 @@
 ;; URL: http://github.com/realgud/realgud-node-inspect
 ;; Compatibility: GNU Emacs 24.x
 
-;; Copyright (C) 2015, 2016, 2018-2019 Rocky Bernstein <rocky@gnu.org>
+;; Copyright (C) 2019 Free Software Foundation, Inc
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

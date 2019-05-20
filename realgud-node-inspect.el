@@ -1,4 +1,4 @@
-;;; realgud-node-inspect.el --- realgud front-end to newer "node inspect"
+;;; realgud-node-inspect.el --- Realgud front-end to newer "node inspect"
 
 ;; Author: Rocky Bernstein
 ;; Version: 1.0.0

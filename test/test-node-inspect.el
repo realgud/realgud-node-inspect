@@ -2,7 +2,7 @@
 ;; (test-simple-run "emacs -batch -L %s -l %s" (file-name-directory (locate-library "test-simple.elc")) buffer-file-name)
 
 (require 'test-simple)
-(load-file "../realgud-node-inspect/main.el")
+(load-file "../realgud-node-inspect/node-inspect.el")
 
 (eval-when-compile (defvar test:run-process-save))
 

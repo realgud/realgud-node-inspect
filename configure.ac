@@ -1,6 +1,6 @@
 dnl FIXME: pick up from realgud.el
 AC_INIT(realgud-inspect, 1.0.0,)
-AC_CONFIG_SRCDIR(realgud-node-inspect/main.el)
+AC_CONFIG_SRCDIR(realgud-node-inspect/node-inspect.el)
 AM_INIT_AUTOMAKE([foreign])
 AM_MAINTAINER_MODE
 

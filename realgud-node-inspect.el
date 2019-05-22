@@ -41,10 +41,10 @@
 (defgroup realgud-node-inspector  nil
   "Realgud interface to the 'node inspect' debugger"
   :group 'realgud
-  :version "24.3")
+  :version "25.1")
 
 (require-relative-list '( "./realgud-node-inspect/node-inspect" ) "realgud-")
-(load-relative "./realgud-node-inspect/main.el")
+(load-relative "./realgud-node-inspect/node-inspect.el")
 (load-relative "./realgud-node-inspect/track-mode.el")
 
 (provide-me)

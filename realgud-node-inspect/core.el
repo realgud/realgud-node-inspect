@@ -16,6 +16,7 @@
 
 (eval-when-compile (require 'cl-lib))
 
+(require 'load-relative)
 (require 'realgud)
 
 (declare-function realgud:expand-file-name-if-exists 'realgud-core)

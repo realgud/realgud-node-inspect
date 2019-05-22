@@ -17,11 +17,12 @@
 
 ;; "node inspect" tracking a comint or eshell buffer.
 
+(require 'load-relative)
+(require 'realgud)
+
 (declare-function realgud:track-set-debugger 'realgud-track-mode)
 (declare-function realgud-track-mode-setup   'realgud-track-mode)
 (declare-function realgud:remove-ansi-schmutz 'realgud:utils)
-
-(require 'realgud)
 
 (require-relative-list '("core" "init") "realgud:node-inspect-")
 

@@ -18,6 +18,7 @@
 
 (eval-when-compile (require 'cl-lib))   ;For setf.
 
+(require 'load-relative)
 (require 'realgud)
 (require 'realgud-lang-js)
 (require 'ansi-color)

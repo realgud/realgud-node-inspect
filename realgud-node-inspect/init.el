@@ -34,10 +34,11 @@ realgud-loc-pat struct")
 ;; before a command prompt.
 ;; For example:
 ;;   break in /home/indutny/Code/git/indutny/myscript.js:1
+;;   frame change in file:///tmp/typescript-service.js:295
 (setf (gethash "loc" realgud:node-inspect-pat-hash)
       (make-realgud-loc-pat
        :regexp (format
-		"\\(?:%s\\)*\\(?:break\\|exception\\|Break on start\\) in \\(?:file://\\)?%s:%s"
+		"\\(?:%s\\)*\\(?:break\\|exception\\|Break on start\\|frame change\\) in \\(?:file://\\)?%s:%s"
 		realgud:js-term-escape "\\([^:]+\\)"
 		realgud:regexp-captured-num)
        :file-group 1
